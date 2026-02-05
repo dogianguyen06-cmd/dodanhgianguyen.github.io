@@ -65,7 +65,7 @@ src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=inst
 </a>
 
 <br><br>
-<img src="https://i.gifer.com/ZHsJ.gif" width="100" alt="Bye">
+<img src="https://i.gifer.com/ZHsJ.gif" width="300" alt="Bye">
 <p>💖 Thanks for visiting 💖</p>
 
 </div>
