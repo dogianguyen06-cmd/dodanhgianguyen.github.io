@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gia Nguyên Portfolio</title>
+    <style>
+        /* 1. ĐỊNH DẠNG CHUNG */
+        body {
+            margin: 0; padding: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f0f4f8; /* Xanh xám nhạt */
+            color: #2d3436;
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        /* Nền Header Gradient xanh đậm nam tính */
+        .header-bg {
+            width: 100%; height: 300px;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            display: flex; justify-content: center; align-items: flex-end;
+            padding-bottom: 50px;
+        }
+
+        .container {
+            max-width: 900px; width: 90%;
+            margin-top: -60px; /* Đẩy khung đè lên nền xanh */
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px; border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+        }
+
+        /* 2. TRANG TRÍ HEADER */
+        .avatar-frame {
+            width: 180px; height: 180px;
+            border-radius: 30px; /* Bo góc vuông thay vì tròn để khác biệt */
+            border: 6px solid white;
+            overflow: hidden; transform: rotate(-3deg); /* Nghiêng nhẹ tạo điểm nhấn */
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            margin: 0 auto 20px;
+        }
+        .avatar-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+        .welcome-title {
+            font-size: 2.2em; color: #1e3c72;
+            margin: 10px 0; font-weight: 800;
+        }
+
+        /* 3. TRANG TRÍ CÁC Ô NỘI DUNG (SECTIONS) */
+        .section-box {
+            display: flex; align-items: center;
+            margin: 40px 0; gap: 30px;
+            padding: 20px; border-radius: 15px;
+            background: #fdfdfd; border-left: 8px solid #2a5298;
+            transition: 0.3s;
+        }
+        .section-box:hover { transform: translateX(10px); background: #f1f8ff; }
+        
+        /* Đảo ngược vị trí ảnh ở các ô chẵn để đẹp mắt */
+        .section-box.reverse { flex-direction: row-reverse; border-left: none; border-right: 8px solid #2a5298; }
+
+        .section-img { width: 300px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        .section-text { flex: 1; text-align: left; }
+
+        h2 { color: #2a5298; font-size: 1.5em; margin-bottom: 15px; text-transform: uppercase; }
+
+        /* 4. CHỨNG CHỈ & LIÊN HỆ */
+        .badge { margin: 5px; height: 32px; border-radius: 5px; }
+        .contact-btn {
+            display: inline-block; padding: 12px 25px;
+            margin: 10px; border-radius: 50px;
+            text-decoration: none; color: white; font-weight: bold;
+            transition: 0.3s;
+        }
+        .fb { background: #1877F2; } .ig { background: #E4405F; }
+        .contact-btn:hover { opacity: 0.8; transform: translateY(-3px); }
+
+    </style>
+</head>
+<body>
+
+    <div class="header-bg">
+        <div class="avatar-frame">
+            <img src="https://media.giphy.com/media/2y98KScHKeaQM/giphy.gif" alt="Gia Nguyên">
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="welcome-title">✨ 𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓶𝔂 𝔀𝓸𝓻𝓵𝓭 ✨</h1>
+        <p style="font-size: 1.1em; color: #636e72;">Đỗ Danh Gia Nguyên | FTU Finance Student</p>
+
+        <hr style="border: 0; height: 1px; background: #eee; margin: 30px 0;">
+
+        <div class="section-box">
+            <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" class="section-img">
+            <div class="section-text">
+                <h2>About Me</h2>
+                <p>🎂 <b>Tuổi:</b> 20</p>
+                <p>👤 <b>Giới tính:</b> Nam</p>
+                <p>🏠 <b>Quê quán:</b> Hà Nội, Việt Nam</p>
+                <p>🚀 <b>Mục tiêu:</b> Ứng dụng AI vào phân tích tài chính</p>
+            </div>
+        </div>
+
+        <div class="section-box reverse">
+            <img src="https://media.giphy.com/media/ZVik7pBtu9dNS/giphy.gif" class="section-img">
+            <div class="section-text">
+                <h2>Knowledge & Skills</h2>
+                <img class="badge" src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+                <img class="badge" src="https://img.shields.io/badge/Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white">
+                <img class="badge" src="https://img.shields.io/badge/Power_BI-F2C811?style=for-the-badge&logo=powerbi&logoColor=black">
+                <br>
+                <img class="badge" src="https://img.shields.io/badge/English-TOEIC_800+-success?style=for-the-badge">
+            </div>
+        </div>
+
+        <div class="section-box">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZWl2ZHh6a3ppZmh3ZGNneTlhdmJlbDd1cW55ZnlqaWN2bm40N3V5cCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/Zf12dIijlwhaDpjtsb/giphy.gif" class="section-img">
+            <div class="section-text">
+                <h2>Experiences</h2>
+                <p>🏆 <b>Competition:</b> FTU Homecoming Race participant</p>
+                <p>👨‍🏫 <b>Tutor:</b> Math & Physics specialist</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 50px;">
+            <h2>Contact Me</h2>
+            <a href="https://www.facebook.com/onguyen.105705" class="contact-btn fb" target="_blank">FACEBOOK</a>
+            <a href="https://instagram.com/yourprofile" class="contact-btn ig" target="_blank">INSTAGRAM</a>
+        </div>
+
+        <br><br>
+        <img src="https://i.gifer.com/ZHsJ.gif" width="80" alt="Bye">
+        <p style="color: #b2bec3;"><i>© 2026 Đỗ Danh Gia Nguyên. Built with passion.</i></p>
+    </div>
+
+</body>
+</html>
