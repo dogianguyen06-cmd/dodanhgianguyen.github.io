@@ -9,12 +9,11 @@
         body {
             margin: 0; padding: 0;
             font-family: 'Segoe UI', sans-serif;
-            background: #f0f4f8; /* Xanh xám nhạt */
+            background: #f0f4f8; 
             color: #2d3436;
             display: flex; flex-direction: column; align-items: center;
         }
 
-        /* Nền Header Gradient xanh đậm nam tính */
         .header-bg {
             width: 100%; height: 300px;
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
@@ -24,19 +23,20 @@
 
         .container {
             max-width: 900px; width: 90%;
-            margin-top: -60px; /* Đẩy khung đè lên nền xanh */
+            margin-top: -60px;
             background: rgba(255, 255, 255, 0.95);
             padding: 40px; border-radius: 20px;
             box-shadow: 0 15px 35px rgba(0,0,0,0.1);
             margin-bottom: 50px;
+            box-sizing: border-box; /* Giúp padding không làm tràn khung */
         }
 
         /* 2. TRANG TRÍ HEADER */
         .avatar-frame {
             width: 180px; height: 180px;
-            border-radius: 30px; /* Bo góc vuông thay vì tròn để khác biệt */
+            border-radius: 30px;
             border: 6px solid white;
-            overflow: hidden; transform: rotate(-3deg); /* Nghiêng nhẹ tạo điểm nhấn */
+            overflow: hidden; transform: rotate(-3deg);
             box-shadow: 0 10px 20px rgba(0,0,0,0.2);
             margin: 0 auto 20px;
         }
@@ -45,23 +45,36 @@
         .welcome-title {
             font-size: 2.2em; color: #1e3c72;
             margin: 10px 0; font-weight: 800;
+            text-align: center;
         }
 
-        /* 3. TRANG TRÍ CÁC Ô NỘI DUNG (SECTIONS) */
+        /* 3. TRANG TRÍ CÁC Ô NỘI DUNG - ĐÃ TỐI ƯU MOBILE */
         .section-box {
-            display: flex; align-items: center;
+            display: flex; 
+            align-items: center;
+            flex-wrap: wrap; /* QUAN TRỌNG: Tự xuống dòng trên điện thoại */
+            justify-content: center;
             margin: 40px 0; gap: 30px;
             padding: 20px; border-radius: 15px;
             background: #fdfdfd; border-left: 8px solid #2a5298;
             transition: 0.3s;
         }
-        .section-box:hover { transform: translateX(10px); background: #f1f8ff; }
+        .section-box:hover { transform: translateY(-5px); background: #f1f8ff; }
         
-        /* Đảo ngược vị trí ảnh ở các ô chẵn để đẹp mắt */
         .section-box.reverse { flex-direction: row-reverse; border-left: none; border-right: 8px solid #2a5298; }
 
-        .section-img { width: 300px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .section-text { flex: 1; text-align: left; }
+        .section-img { 
+            width: 300px; 
+            max-width: 100%; /* Đảm bảo không to hơn màn hình điện thoại */
+            border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+        }
+        
+        .section-text { 
+            flex: 1; 
+            min-width: 250px; /* Khi màn hình nhỏ hơn 250px sẽ tự xuống dòng */
+            text-align: left; 
+        }
 
         h2 { color: #2a5298; font-size: 1.5em; margin-bottom: 15px; text-transform: uppercase; }
 
@@ -76,6 +89,15 @@
         .fb { background: #1877F2; } .ig { background: #E4405F; }
         .contact-btn:hover { opacity: 0.8; transform: translateY(-3px); }
 
+        /* 5. CẤU HÌNH RIÊNG CHO ĐIỆN THOẠI */
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            .welcome-title { font-size: 1.8em; }
+            .section-box { border-left: 5px solid #2a5298; border-right: none; text-align: center; }
+            .section-box.reverse { flex-direction: column; border-right: none; border-left: 5px solid #2a5298; }
+            .section-text { text-align: center; }
+            .footer-text { font-size: 1.8em !important; } /* Thu nhỏ lời cảm ơn một chút */
+        }
     </style>
 </head>
 <body>
@@ -88,8 +110,10 @@
 
     <div class="container">
         <h1 class="welcome-title">✨ 𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓶𝔂 𝔀𝓸𝓻𝓵𝓭 ✨</h1>
-        <p style="font-size: 1.1em; color: #636e72;">🏫 <b>Trường:</b> Đại học Ngoại thương (FTU)</p>
-        <p style="font-size: 1.1em; color: #636e72;">💼 <b>Chuyên ngành:</b> Tài chính & Ngân hàng</p>
+        <div style="text-align: center;">
+            <p style="font-size: 1.1em; color: #636e72; margin: 5px 0;">🏫 <b>Trường:</b> Đại học Ngoại thương (FTU)</p>
+            <p style="font-size: 1.1em; color: #636e72; margin: 5px 0;">💼 <b>Chuyên ngành:</b> Tài chính & Ngân hàng</p>
+        </div>
         <hr style="border: 0; height: 1px; background: #eee; margin: 30px 0;">
 
         <div class="section-box">
@@ -126,15 +150,14 @@
             </div>
         </div>
 
-        <div style="margin-top: 50px;">
+        <div style="margin-top: 50px; text-align: center;">
             <h2>Contact Me</h2>
             <a href="https://www.facebook.com/onguyen.105705" class="contact-btn fb" target="_blank">FACEBOOK</a>
             <a href="https://instagram.com/yourprofile" class="contact-btn ig" target="_blank">INSTAGRAM</a>
         </div>
 
-
         <div style="text-align: center; margin-top: 80px; padding-bottom: 20px;">
-            <p style="font-family: 'Georgia', serif; font-style: italic; font-size: 2.5em; color: #ff8a80; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
+            <p class="footer-text" style="font-family: 'Georgia', serif; font-style: italic; font-size: 2.5em; color: #ff8a80; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.1);">
                 💖 𝓣𝓱𝓪𝓷𝓴𝓼 𝓯𝓸𝓻 𝓿𝓲𝓼𝓲𝓽𝓲𝓷𝓰 💖
             </p>
 
@@ -144,5 +167,6 @@
                 <i>© 2026 Đỗ Danh Gia Nguyên. Built with passion.</i>
             </p>
         </div>
-    </div> </body>
+    </div>
+</body>
 </html>
