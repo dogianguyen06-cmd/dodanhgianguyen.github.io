@@ -1,112 +1,183 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gia Nguyên Portfolio</title>
-    <style>
-        /* 1. ĐỊNH DẠNG CHUNG */
-        body {
-            margin: 0; padding: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #f0f4f8; 
-            color: #2d3436;
-            display: flex; flex-direction: column; align-items: center;
-        }
+/* ===== RESET NHẸ ===== */
+* {
+    box-sizing: border-box;
+}
 
-        .header-bg {
-            width: 100%; height: 300px;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            display: flex; justify-content: center; align-items: flex-end;
-            padding-bottom: 50px;
-        }
+/* 1. BODY */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f4f8;
+    color: #2d3436;
+}
 
-        .container {
-            max-width: 900px; width: 90%;
-            margin-top: -60px;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 40px; border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            margin-bottom: 50px;
-            box-sizing: border-box; /* Giúp padding không làm tràn khung */
-        }
+/* 2. HEADER */
+.header-bg {
+    width: 100%;
+    height: 280px;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    padding-bottom: 40px;
+}
 
-        /* 2. TRANG TRÍ HEADER */
-        .avatar-frame {
-            width: 180px; height: 180px;
-            border-radius: 30px;
-            border: 6px solid white;
-            overflow: hidden; transform: rotate(-3deg);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-            margin: 0 auto 20px;
-        }
-        .avatar-frame img { width: 100%; height: 100%; object-fit: cover; }
+.avatar-frame {
+    width: 160px;
+    height: 160px;
+    border-radius: 30px;
+    border: 6px solid white;
+    overflow: hidden;
+    transform: rotate(-3deg);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
 
-        .welcome-title {
-            font-size: 2.2em; color: #1e3c72;
-            margin: 10px 0; font-weight: 800;
-            text-align: center;
-        }
+.avatar-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
-        /* 3. TRANG TRÍ CÁC Ô NỘI DUNG - ĐÃ TỐI ƯU MOBILE */
-        .section-box {
-            display: flex; 
-            align-items: center;
-            flex-wrap: wrap; /* QUAN TRỌNG: Tự xuống dòng trên điện thoại */
-            justify-content: center;
-            margin: 40px 0; gap: 30px;
-            padding: 20px; border-radius: 15px;
-            background: #fdfdfd; border-left: 8px solid #2a5298;
-            transition: 0.3s;
-        }
-        .section-box:hover { transform: translateY(-5px); background: #f1f8ff; }
-        
-        .section-box.reverse { flex-direction: row-reverse; border-left: none; border-right: 8px solid #2a5298; }
+/* 3. CONTAINER */
+.container {
+    max-width: 900px;
+    width: 92%;
+    margin: -70px auto 50px;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
 
-        .section-img { 
-            width: 300px; 
-            max-width: 100%; /* Đảm bảo không to hơn màn hình điện thoại */
-            border-radius: 12px; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
-        }
-        
-        .section-text { 
-            flex: 1; 
-            min-width: 250px; /* Khi màn hình nhỏ hơn 250px sẽ tự xuống dòng */
-            text-align: left; 
-        }
+/* 4. TITLE */
+.welcome-title {
+    font-size: 2.2em;
+    color: #1e3c72;
+    margin: 10px 0;
+    font-weight: 800;
+    text-align: center;
+}
 
-        h2 { color: #2a5298; font-size: 1.5em; margin-bottom: 15px; text-transform: uppercase; }
+/* ===== SECTION BOX ===== */
 
-        /* 4. CHỨNG CHỈ & LIÊN HỆ */
-        .badge { margin: 5px; height: 32px; border-radius: 5px; }
-        .contact-btn {
-            display: inline-block; padding: 12px 25px;
-            margin: 10px; border-radius: 50px;
-            text-decoration: none; color: white; font-weight: bold;
-            transition: 0.3s;
-        }
-        .fb { background: #1877F2; } .ig { background: #E4405F; }
-        .contact-btn:hover { opacity: 0.8; transform: translateY(-3px); }
+.section-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 40px 0;
+    padding: 25px;
+    border-radius: 15px;
+    background: #fdfdfd;
+    border-left: 8px solid #2a5298;
+    transition: 0.3s;
+}
 
-        /* 5. CẤU HÌNH RIÊNG CHO ĐIỆN THOẠI */
-        @media (max-width: 600px) {
-            .container { padding: 20px; }
-            .welcome-title { font-size: 1.8em; }
-            .section-box { border-left: 5px solid #2a5298; border-right: none; text-align: center; }
-            .section-box.reverse { flex-direction: column; border-right: none; border-left: 5px solid #2a5298; }
-            .section-text { text-align: center; }
-            .footer-text { font-size: 1.8em !important; } /* Thu nhỏ lời cảm ơn một chút */
-        }
-    </style>
-</head>
-<body>
+.section-box:hover {
+    transform: translateY(-5px);
+    background: #f1f8ff;
+}
 
-    <div class="header-bg">
-        <div class="avatar-frame">
-            <img src="https://media.giphy.com/media/2y98KScHKeaQM/giphy.gif" alt="Gia Nguyên">
-        </div>
-    </div>
+.section-box.reverse {
+    flex-direction: row-reverse;
+    border-left: none;
+    border-right: 8px solid #2a5298;
+}
+
+.section-img {
+    width: 280px;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.section-text {
+    flex: 1;
+}
+
+h2 {
+    color: #2a5298;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* ===== BADGE ===== */
+.badge {
+    margin: 5px;
+    height: 32px;
+}
+
+/* ===== CONTACT ===== */
+.contact-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 10px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.fb { background: #1877F2; }
+.ig { background: #E4405F; }
+
+.contact-btn:hover {
+    opacity: 0.85;
+    transform: translateY(-3px);
+}
+
+/* ========================================= */
+/* 📱 MOBILE RESPONSIVE */
+/* ========================================= */
+
+@media (max-width: 768px) {
+
+    .header-bg {
+        height: 240px;
+        padding-bottom: 30px;
+    }
+
+    .container {
+        margin-top: -60px;
+        padding: 25px 18px;
+    }
+
+    .welcome-title {
+        font-size: 1.7em;
+    }
+
+    /* ⭐ Stack dọc */
+    .section-box {
+        flex-direction: column;
+        text-align: center;
+        border-left: 5px solid #2a5298;
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .section-box.reverse {
+        flex-direction: column;
+        border-right: none;
+        border-left: 5px solid #2a5298;
+    }
+
+    .section-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .section-img {
+        width: 90%;
+        max-width: 320px;
+    }
+
+    .footer-text {
+        font-size: 1.6em !important;
+    }
+}
 
     <div class="container">
         <h1 class="welcome-title">✨ 𝓦𝓮𝓵𝓬𝓸𝓶𝓮 𝓽𝓸 𝓶𝔂 𝔀𝓸𝓻𝓵𝓭 ✨</h1>
